@@ -1,0 +1,20 @@
+
+
+syntax = "proto3";
+
+package RemoteCalc.grpc;
+
+message MathRequest {
+	string expression = 1;
+}
+
+message MathResponce {
+	double value = 1;
+	bool isSuccess = 2;
+	string comment = 3;
+}
+
+
+service CalcService{
+	rpc calculate(MathRequest) returns (MathResponce);
+}
